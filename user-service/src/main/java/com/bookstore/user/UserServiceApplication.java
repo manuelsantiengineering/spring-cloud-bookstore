@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableDiscoveryClient
 @EnableJpaRepositories(basePackages="com.bookstore.user.repository")
 public class UserServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
