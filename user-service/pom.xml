@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.bookstore</groupId>
 	<artifactId>user-service</artifactId>
@@ -17,7 +17,6 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2.1.1.RELEASE</spring-cloud.version>
-		<eureka-client.version>2.1.1.RELEASE</eureka-client.version>
 	</properties>
 
 	<dependencies>
@@ -55,7 +54,7 @@
 		 <dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		    <version>${eureka-client.version}</version>
+		    <version>${spring-cloud.version}</version>
 		 </dependency>
 		<dependency>
 	        <groupId>org.springframework.cloud</groupId>
