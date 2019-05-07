@@ -1,5 +1,6 @@
 package com.zuul.apigateway;
 
+
 import java.util.Collections;
 
 import org.springframework.boot.SpringApplication;
