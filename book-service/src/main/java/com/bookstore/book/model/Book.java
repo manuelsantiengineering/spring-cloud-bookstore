@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="book",catalog="ob_catalog")
+//@Table(name="book",catalog="ob_catalog")
 public class Book {
 
 	@Id

@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="publisher",catalog="ob_catalog")
+//@Table(name="publisher",catalog="ob_catalog")
 public class Publisher {
 
 	@Id

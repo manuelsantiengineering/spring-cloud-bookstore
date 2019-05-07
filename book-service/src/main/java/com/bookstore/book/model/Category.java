@@ -1,6 +1,6 @@
 package com.bookstore.book.model;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="category",catalog="ob_catalog")
+//@Table(name="category",catalog="ob_catalog")
 public class Category {
 
 	@Id

@@ -27,7 +27,6 @@ public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdap
 	
 	/*@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		// TODO Auto-generated method stub
 		super.configure(security);
 	}
 */

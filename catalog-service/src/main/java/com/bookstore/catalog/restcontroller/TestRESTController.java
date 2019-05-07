@@ -16,6 +16,7 @@ public class TestRESTController {
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Value("${catalog.sample.data: DummyData}")
+//	@Value("${catalog.sample.data}")
 	private String data;
 	
 	/*
