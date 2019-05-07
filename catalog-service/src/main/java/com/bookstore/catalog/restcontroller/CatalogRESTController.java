@@ -81,9 +81,9 @@ public class CatalogRESTController {
 			bookDto.setTitle(bookObject.getTitle());
 			bookDto.setPort(env.getProperty("local.server.port"));
 			
-			return new ResponseEntity(bookDto,HttpStatus.OK);
+			return new ResponseEntity<BookDTO>(bookDto,HttpStatus.OK);
 		}else {
-			return new ResponseEntity(bookDto, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<BookDTO>(bookDto, HttpStatus.NOT_FOUND);
 		}
 	}
 	
