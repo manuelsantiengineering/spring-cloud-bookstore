@@ -25,8 +25,7 @@ public class InventoryRESTController {
 	
 	@GetMapping("/test")
 	public ResponseEntity<Void> getTest() {
-		return new ResponseEntity<Void>(HttpStatus.OK);
-		
+		return new ResponseEntity<Void>(HttpStatus.OK);		
 	}
 	
 	/*@GetMapping("/home")

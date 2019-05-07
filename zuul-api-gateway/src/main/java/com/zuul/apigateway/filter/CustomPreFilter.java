@@ -24,8 +24,8 @@ public class CustomPreFilter extends ZuulFilter {
 	public Object run() throws ZuulException {
 		HttpServletRequest request =  RequestContext.getCurrentContext().getRequest();
 		_logger.info("*******************  REQUEST STARTED **********************************");
-		_logger.info("Port :"+ request.getLocalPort());
-		_logger.info("HTTP Method :"+ request.getMethod());
+		_logger.info("Port : "+ request.getLocalPort());
+		_logger.info("HTTP Method : "+ request.getMethod());
 		return null;
 	}
 
