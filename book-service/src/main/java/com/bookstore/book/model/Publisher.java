@@ -8,10 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-//import javax.persistence.Table;
+import javax.persistence.Table;
 
 @Entity
-//@Table(name="publisher",catalog="ob_catalog")
+@Table(name="publisher",catalog="rogersinstdb")
 public class Publisher {
 
 	@Id

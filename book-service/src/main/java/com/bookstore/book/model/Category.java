@@ -9,10 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-//import javax.persistence.Table;
+import javax.persistence.Table;
 
 @Entity
-//@Table(name="category",catalog="ob_catalog")
+@Table(name="category",catalog="rogersinstdb")
 public class Category {
 
 	@Id
