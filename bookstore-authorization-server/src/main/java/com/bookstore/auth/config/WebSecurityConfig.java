@@ -22,18 +22,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 				super.authenticationManagerBean();
 		return authenticationManager;
 	}
+	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/js/**");
 		web.ignoring().antMatchers("/css/**");
 	}
+	
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth)
-			throws Exception {
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 		.withUser("john").password(//"1234").authorities("USER");
-				encoder().encode("999")).authorities("USER");
+		encoder().encode("999")).authorities("USER");
 	}
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -42,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin().loginPage("/login").permitAll();
 	}
+	
 	@Bean("encoder")
 	public BCryptPasswordEncoder encoder(){
 		return new BCryptPasswordEncoder();
