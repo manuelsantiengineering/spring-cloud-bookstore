@@ -17,6 +17,9 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+// This class is responsible for configuring various endpoints, 
+// static resources, and the login page, along with the authentication mechanism. 
+// This is all about authorization server configuration
 @Configuration
 @EnableAuthorizationServer
 public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdapter {
@@ -30,6 +33,8 @@ public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdap
 		super.configure(security);
 	}
 */
+	// Method is used to define configuration for the custom authorization client
+	//  It initializes the client with various configurations
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
@@ -40,31 +45,34 @@ public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdap
 		.redirectUris("http://localhost:8781/inventory-test/api/inventory/home")
 		.resourceIds("oauth2-server");
 	}
+	
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
 		converter.setSigningKey("123");
 		return converter;
 	}
+	
 	@Bean
 	public TokenStore tokenStore() {
 		return new JwtTokenStore(accessTokenConverter());
 	}
+	
+	// Method is used to configure tokens, along with the authentication manager
 	@Override
-	public void configure(
-			AuthorizationServerEndpointsConfigurer endpoints)
-					throws Exception {
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
 		 endpoints
 		.authenticationManager(authenticationManager)
 		.tokenServices(tokenServices())
 		.tokenStore(tokenStore())
 		.accessTokenConverter(accessTokenConverter());
 	}
+	
 	@Bean("resourceServerTokenServices")
 	@Primary
 	public DefaultTokenServices tokenServices() {
-		DefaultTokenServices defaultTokenServices = new
-				DefaultTokenServices();
+		DefaultTokenServices defaultTokenServices = 
+				new	DefaultTokenServices();
 		defaultTokenServices.setTokenStore(tokenStore());
 		defaultTokenServices.setSupportRefreshToken(false);
 		defaultTokenServices.setAccessTokenValiditySeconds(120);
