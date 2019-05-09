@@ -1,5 +1,6 @@
 package com.zuul.apigateway.config;
 
+/*
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -12,34 +13,39 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.util.matcher.RequestHeaderRequestMatcher;
 
 
-/* for time being disabled this  */
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	private static final String RESOURCE_ID = "oauth2-server";
+	
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) {
 		resources
 		.tokenStore(tokenStore())
 		.resourceId(RESOURCE_ID);
 	}
+	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http
 		.requestMatcher(new RequestHeaderRequestMatcher("Authorization"))
 		.authorizeRequests()
+		// Microservice specific end point configuration will go here.
 		.antMatchers("/inventory-test/api/inventory/home").permitAll()
-		.antMatchers("/**").authenticated()
-		.and().exceptionHandling().accessDeniedHandler(new
-				OAuth2AccessDeniedHandler());
+		.antMatchers("/inventory-service/api/inventory/test").permitAll()
+		.antMatchers("/**").permitAll()
+//		.antMatchers("/**").authenticated()
+		.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
 	}
+	
 	@Bean
 	public TokenStore tokenStore() {
 		return new JwtTokenStore(accessTokenConverter());
 	}
+	
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-		converter.setSigningKey("123");
+		converter.setSigningKey("password");
 		return converter;
 	}
-}
+}*/

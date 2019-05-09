@@ -38,8 +38,8 @@ public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-		.withClient("testClientId")
-		.secret(new BCryptPasswordEncoder().encode("test123"))
+		.withClient("tomatito")
+		.secret(new BCryptPasswordEncoder().encode("password"))
 		.authorizedGrantTypes("authorization_code", "refresh_token", "implicit", "password", "client_credentials")
 		.scopes("registeredUser","admin")
 		.redirectUris("http://localhost:8781/inventory-test/api/inventory/home")
@@ -49,7 +49,7 @@ public class CustomAuthorizationConfig extends AuthorizationServerConfigurerAdap
 	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-		converter.setSigningKey("123");
+		converter.setSigningKey("password");
 		return converter;
 	}
 	
