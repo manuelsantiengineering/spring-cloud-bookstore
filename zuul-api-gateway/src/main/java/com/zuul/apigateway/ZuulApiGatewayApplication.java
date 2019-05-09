@@ -5,6 +5,7 @@ import java.util.Collections;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
@@ -19,7 +20,7 @@ import com.zuul.apigateway.interceptor.FeignClientInterceptor;
 import feign.RequestInterceptor;
 
 @EnableZuulProxy
-//@EnableOAuth2Sso
+@EnableOAuth2Sso
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ZuulApiGatewayApplication {
