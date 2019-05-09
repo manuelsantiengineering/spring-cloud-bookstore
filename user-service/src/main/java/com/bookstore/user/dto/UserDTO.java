@@ -6,7 +6,7 @@ public class UserDTO {
 
 	private Integer id;
 	
-	@NotNull(message="UserName can not be empty")
+	@NotNull(message="Username can not be empty")
 	private String username;
 	
 	@NotNull(message="Email can not be empty")

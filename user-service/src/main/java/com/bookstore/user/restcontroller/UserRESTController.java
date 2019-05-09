@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,5 +71,10 @@ public class UserRESTController {
 			List<String> msgLst = Arrays.asList("User registered successfully");
 			return new ResponseEntity<List<String>>(msgLst, HttpStatus.OK);
 		}
+	}
+	
+	@GetMapping("/test")
+	public ResponseEntity<String> getTest() {
+		return new ResponseEntity<String>("Hola user-service",HttpStatus.OK);		
 	}
 }

@@ -99,6 +99,7 @@ public class CatalogRESTController {
 		}else {
 			Book bookEntity = new Book();
 			Publisher bookPublisher = getPublisher(bookDto.getPublisherId());
+			System.out.println(bookPublisher.toString());
 			bookEntity.setPublisher(bookPublisher);
 			
 			bookEntity.setPrice(bookDto.getPrice());
