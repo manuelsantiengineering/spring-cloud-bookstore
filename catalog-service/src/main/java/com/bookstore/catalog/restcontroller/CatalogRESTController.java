@@ -96,10 +96,12 @@ public class CatalogRESTController {
 			List<String> errorMsg = new ArrayList<String>();
 			errors.getAllErrors().forEach(a -> errorMsg.add(a.getDefaultMessage()));
 			return new ResponseEntity<List<String>>(errorMsg, HttpStatus.BAD_REQUEST);
+			
 		}else {
 			Book bookEntity = new Book();
+			System.out.println(bookDto.getPublisherId());
 			Publisher bookPublisher = getPublisher(bookDto.getPublisherId());
-			System.out.println(bookPublisher.toString());
+//			System.out.println(bookPublisher.toString());
 			bookEntity.setPublisher(bookPublisher);
 			
 			bookEntity.setPrice(bookDto.getPrice());
